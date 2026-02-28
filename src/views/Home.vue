@@ -11,7 +11,7 @@
         </div>
         <h1 class="font-['Syne'] font-extrabold text-white text-5xl md:text-6xl leading-[1.08] tracking-[-2px] mb-5">
           Stories from<br/>
-          <span class="bg-gradient-to-r from-[#7c8df8] to-[#eb459e] bg-clip-text text-transparent">the universe</span>
+          <span class="bg-linear-to-r from-[#7c8df8] to-[#eb459e] bg-clip-text text-transparent">the universe</span>
         </h1>
         <p class="text-white/40 text-base leading-relaxed">
           Announcements, deep dives, and community highlights from the team building Astroblox.
@@ -31,19 +31,19 @@
           class="text-xs font-semibold px-4 py-1.5 rounded-full border transition-all"
           :class="activeCategory === cat
             ? 'bg-[#5865f2] border-[#5865f2] text-white'
-            : 'bg-white/[0.03] border-white/[0.08] text-white/40 hover:text-white/70 hover:border-white/20'"
+            : 'bg-white/3 border-white/8 text-white/40 hover:text-white/70 hover:border-white/20'"
         >{{ cat }}</button>
       </div>
 
       <!-- Loading skeletons -->
       <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div v-for="i in 6" :key="i" class="bg-[#13151c] border border-white/[0.07] rounded-2xl overflow-hidden animate-pulse">
-          <div class="aspect-video bg-white/[0.04]" />
+          <div class="aspect-video bg-white/4" />
           <div class="p-5 space-y-3">
-            <div class="h-3 bg-white/[0.05] rounded w-1/3" />
-            <div class="h-5 bg-white/[0.05] rounded w-4/5" />
-            <div class="h-3 bg-white/[0.03] rounded w-full" />
-            <div class="h-3 bg-white/[0.03] rounded w-2/3" />
+            <div class="h-3 bg-white/5 rounded w-1/3" />
+            <div class="h-5 bg-white/5 rounded w-4/5" />
+            <div class="h-3 bg-white/3 rounded w-full" />
+            <div class="h-3 bg-white/3 rounded w-2/3" />
           </div>
         </div>
       </div>

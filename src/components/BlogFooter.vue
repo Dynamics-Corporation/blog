@@ -1,5 +1,5 @@
 <template>
-  <footer class="border-t border-white/[0.06] mt-auto py-10">
+  <footer class="border-t border-white/6 mt-auto py-10">
     <div class="max-w-6xl mx-auto px-8 flex flex-col gap-8">
 
       <!-- Top row -->
@@ -47,7 +47,7 @@
       </div>
 
       <!-- Bottom row -->
-      <div class="pt-6 border-t border-white/[0.06] flex items-center justify-between flex-wrap gap-4">
+      <div class="pt-6 border-t border-white/6 flex items-center justify-between flex-wrap gap-4">
         <span class="text-xs text-white/20">© {{ year }} Astroblox Inc. All rights reserved.</span>
         <span class="text-xs text-white/20 flex items-center gap-1.5">
           Made with

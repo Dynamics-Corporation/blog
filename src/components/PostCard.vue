@@ -17,13 +17,13 @@
       />
       <div
         v-else
-        class="w-full h-full bg-gradient-to-br from-[#5865f2]/20 to-[#eb459e]/20 flex items-center justify-center"
+        class="w-full h-full bg-linear-to-br from-[#5865f2]/20 to-[#eb459e]/20 flex items-center justify-center"
       >
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
           <polygon points="18,3 21,12 31,12 23,18 26,28 18,22 10,28 13,18 5,12 15,12" fill="#5865f2" opacity="0.4"/>
         </svg>
       </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#13151c]/70 to-transparent" />
+      <div class="absolute inset-0 bg-linear-to-t from-[#13151c]/70 to-transparent" />
       <span
         class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full border"
         :style="{ color: catColor, borderColor: catColor + '50', background: catColor + '18' }"

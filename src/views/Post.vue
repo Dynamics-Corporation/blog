@@ -3,10 +3,10 @@
 
     <!-- Loading -->
     <div v-if="loading" class="animate-pulse space-y-5 mt-8">
-      <div class="h-4 bg-white/[0.05] rounded w-1/4" />
-      <div class="h-10 bg-white/[0.05] rounded w-3/4" />
-      <div class="h-4 bg-white/[0.03] rounded w-full" />
-      <div class="h-64 bg-white/[0.03] rounded-2xl mt-8" />
+      <div class="h-4 bg-white/5 rounded w-1/4" />
+      <div class="h-10 bg-white/5 rounded w-3/4" />
+      <div class="h-4 bg-white/3 rounded w-full" />
+      <div class="h-64 bg-white/3 rounded-2xl mt-8" />
     </div>
 
     <!-- Error -->

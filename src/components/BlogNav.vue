@@ -1,7 +1,7 @@
 <template>
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="scrolled ? 'bg-[#0c0d11]/90 backdrop-blur-xl border-b border-white/[0.06] py-3' : 'py-5'"
+    :class="scrolled ? 'bg-[#0c0d11]/90 backdrop-blur-xl border-b border-white/6 py-3' : 'py-5'"
   >
     <div class="max-w-6xl mx-auto px-8 flex items-center gap-8">
       <!-- Logo -->
@@ -23,7 +23,7 @@
           v-model="search"
           type="text"
           placeholder="Search posts..."
-          class="bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2 pl-9 text-sm text-white/80 placeholder:text-white/25 outline-none focus:border-[#5865f2]/50 w-48 transition-all"
+          class="bg-white/4 border border-white/8 rounded-xl px-4 py-2 pl-9 text-sm text-white/80 placeholder:text-white/25 outline-none focus:border-[#5865f2]/50 w-48 transition-all"
           @input="$emit('search', search)"
         />
         <svg class="absolute left-3 top-2.5 text-white/25" width="14" height="14" viewBox="0 0 14 14" fill="none">

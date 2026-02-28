@@ -1,5 +1,5 @@
 const OWNER  = 'BloxGlobe'
-const REPO   = 'astroblox-blog-posts'  // 👈 change to your actual repo name
+const REPO   = 'blog'  
 const BRANCH = 'main'
 const FOLDER = 'posts'
 
