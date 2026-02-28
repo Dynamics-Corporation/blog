@@ -1,58 +1,38 @@
 <template>
   <router-link
     :to="`/post/${post.slug}`"
-    class="group flex flex-col bg-[#13151c] border border-white/[0.07] rounded-2xl overflow-hidden hover:border-white/[0.14] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer"
-    :class="featured ? 'md:flex-row' : ''"
+    class="group relative block rounded-2xl overflow-hidden aspect-video bg-[#1a1c26] cursor-pointer"
   >
-    <!-- Cover -->
+    <!-- Cover image — fills entire card -->
+    <img
+      v-if="post.cover"
+      :src="post.cover"
+      :alt="post.title"
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+
+    <!-- Fallback gradient -->
     <div
-      class="relative overflow-hidden shrink-0"
-      :class="featured ? 'md:w-1/2 aspect-video md:aspect-auto' : 'aspect-video'"
+      v-else
+      class="absolute inset-0 bg-linear-to-br from-[#5865f2]/30 to-[#eb459e]/20 flex items-center justify-center"
     >
-      <img
-        v-if="post.cover"
-        :src="post.cover"
-        :alt="post.title"
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-      <div
-        v-else
-        class="w-full h-full bg-linear-to-br from-[#5865f2]/20 to-[#eb459e]/20 flex items-center justify-center"
-      >
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <polygon points="18,3 21,12 31,12 23,18 26,28 18,22 10,28 13,18 5,12 15,12" fill="#5865f2" opacity="0.4"/>
-        </svg>
-      </div>
-      <div class="absolute inset-0 bg-linear-to-t from-[#13151c]/70 to-transparent" />
-      <span
-        class="absolute top-3 left-3 text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full border"
-        :style="{ color: catColor, borderColor: catColor + '50', background: catColor + '18' }"
-      >{{ post.category }}</span>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+        <polygon points="12,2 14.5,8.5 22,8.5 16,13 18.5,20 12,16 5.5,20 8,13 2,8.5 9.5,8.5" fill="white" opacity="0.2"/>
+      </svg>
     </div>
 
-    <!-- Body -->
-    <div class="flex flex-col flex-1 p-5 gap-3">
-      <div class="flex items-center gap-2 text-xs text-white/30">
-        <span>{{ post.author }}</span>
-        <span>·</span>
-        <span>{{ post.date }}</span>
-        <span>·</span>
-        <span>{{ post.readTime }}</span>
-      </div>
+    <!-- Bottom gradient overlay — reveals on hover -->
+    <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      <h2
-        class="font-['Syne'] font-bold text-white/90 group-hover:text-white leading-snug tracking-tight transition-colors"
-        :class="featured ? 'text-2xl' : 'text-lg'"
-      >{{ post.title }}</h2>
-
-      <p class="text-sm text-white/35 leading-relaxed line-clamp-3 flex-1">{{ post.excerpt }}</p>
-
-      <span class="flex items-center gap-2 text-[#5865f2] text-sm font-semibold group-hover:gap-3 transition-all mt-auto">
-        Read post
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+    <!-- Title — slides up on hover -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+      <span
+        class="text-[10px] font-bold tracking-widest uppercase mb-1.5 block"
+        :style="{ color: catColor }"
+      >{{ post.category }}</span>
+      <h3 class="font-['Syne'] font-bold text-white text-sm leading-snug line-clamp-2">
+        {{ post.title }}
+      </h3>
     </div>
   </router-link>
 </template>
@@ -61,12 +41,11 @@
 import type { Post } from '../composables/usePosts.js'
 
 const props = defineProps<{
-  post:     Post
-  featured?: boolean
+  post: Post
 }>()
 
 const categoryColors: Record<string, string> = {
-  Announcements: '#5865f2',
+  Announcements: '#a8b0ff',
   Engineering:   '#57f287',
   Design:        '#eb459e',
   Features:      '#fee75c',

@@ -1,6 +1,6 @@
 <template>
   <footer class="border-t border-white/6 mt-auto py-10">
-    <div class="max-w-6xl mx-auto px-8 flex flex-col gap-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col gap-8">
 
       <!-- Top row -->
       <div class="flex items-start justify-between flex-wrap gap-10">
@@ -17,7 +17,6 @@
           <p class="text-sm text-white/30 leading-relaxed">
             Stories, updates, and insights from the team building the future of community.
           </p>
-          <!-- Status -->
           <div class="flex items-center gap-2 text-xs text-[#57f287]">
             <span class="w-1.5 h-1.5 rounded-full bg-[#57f287] shadow-[0_0_8px_#57f287] animate-pulse" />
             All systems operational
