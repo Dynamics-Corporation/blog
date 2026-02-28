@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import Home from './views/Home.vue'
 import Post from './views/Post.vue'
-import './style.css'
+import './assets/styles/style.css'
 
 const router = createRouter({
   history: createWebHistory(),
