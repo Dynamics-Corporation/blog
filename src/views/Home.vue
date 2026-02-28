@@ -1,30 +1,39 @@
 <template>
   <div>
-
-    <!-- ── HERO BANNER (like Polytoria) ── -->
+    <!-- ── HERO BANNER ── -->
     <section class="relative h-72 flex items-center justify-center overflow-hidden">
-      <!-- Background with space nebula -->
+      <!-- Background -->
       <div class="absolute inset-0 bg-linear-to-b from-[#0d0f1a] via-[#111420] to-[#0c0d11]" />
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(88,101,242,0.2),transparent_60%)]" />
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(235,69,158,0.08),transparent_50%)]" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,62,0,0.2),transparent_60%)]" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(255,107,53,0.08),transparent_50%)]" />
       <!-- Grid lines -->
-      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[48px_48px]" />
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)]" style="background-size: 48px 48px;" />
 
       <!-- Centered logo + title -->
       <div class="relative flex flex-col items-center gap-3 text-center">
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none">
-          <polygon points="12,2 14.5,8.5 22,8.5 16,13 18.5,20 12,16 5.5,20 8,13 2,8.5 9.5,8.5" fill="white"/>
-          <circle cx="12" cy="12" r="2" fill="#5865f2"/>
+        <svg width="44" height="44" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#ff3e00;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M 50 20 Q 70 20 70 35 Q 70 45 50 50 Q 30 55 30 65 Q 30 80 50 80 Q 70 80 70 70" 
+                fill="none" 
+                stroke="url(#logoGrad)" 
+                stroke-width="8" 
+                stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="url(#logoGrad)" stroke-width="2" opacity="0.3"/>
         </svg>
-        <h1 class="font-['Syne'] font-extrabold text-white text-3xl tracking-tight">Astroblox</h1>
-        <p class="text-white/40 text-sm tracking-wide">The Astroblox Blog</p>
+        <h1 class="font-bold text-white text-3xl tracking-tight">Synoria</h1>
+        <p class="text-white/40 text-sm tracking-wide">The Synoria Blog</p>
       </div>
 
-      <!-- Purple top border (like Polytoria) -->
-      <div class="absolute top-0 left-0 right-0 h-0.75 bg-linear-to-r from-transparent via-[#5865f2] to-transparent" />
+      <!-- Top border -->
+      <div class="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#ff3e00] to-transparent" />
     </section>
 
-    <!-- ── MAIN CONTENT (dark card, floats over hero) ── -->
+    <!-- ── MAIN CONTENT ── -->
     <div class="relative -mt-6 mx-auto max-w-5xl px-6 pb-24">
       <div class="bg-[#161820] rounded-2xl shadow-[0_-8px_60px_rgba(0,0,0,0.6)] overflow-hidden">
 
@@ -44,12 +53,12 @@
         <!-- Error -->
         <div v-else-if="error" class="p-12 text-center flex flex-col items-center gap-3">
           <p class="text-white/30 text-sm">{{ error }}</p>
-          <button @click="load" class="text-[#5865f2] text-sm hover:underline">Try again</button>
+          <button @click="load" class="text-[#ff3e00] text-sm hover:underline">Try again</button>
         </div>
 
         <template v-else-if="posts.length">
 
-          <!-- ── RECENTLY POSTED (featured, like Polytoria) ── -->
+          <!-- ── FEATURED POST ── -->
           <div v-if="featured" class="p-8 border-b border-white/6">
             <p class="text-[11px] font-bold tracking-[0.15em] text-white/30 uppercase mb-5">Recently Posted</p>
 
@@ -65,16 +74,16 @@
                   :alt="featured.title"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div v-else class="w-full h-full flex items-center justify-center bg-linear-to-br from-[#5865f2]/20 to-[#eb459e]/20">
+                <div v-else class="w-full h-full flex items-center justify-center bg-linear-to-br from-[#ff3e00]/20 to-[#ff6b35]/20">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
-                    <polygon points="12,2 14.5,8.5 22,8.5 16,13 18.5,20 12,16 5.5,20 8,13 2,8.5 9.5,8.5" fill="#5865f2" opacity="0.4"/>
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#ff3e00" opacity="0.4"/>
                   </svg>
                 </div>
               </div>
 
               <!-- Text right -->
               <div class="flex flex-col gap-3 py-1">
-                <h2 class="font-['Syne'] font-bold text-white text-3xl leading-tight tracking-tight">
+                <h2 class="font-bold text-white text-3xl leading-tight tracking-tight">
                   {{ featured.title }}
                 </h2>
                 <p class="text-white/50 text-[15px] leading-relaxed line-clamp-4">
@@ -103,7 +112,7 @@
                 @click="activeCategory = cat"
                 class="text-xs font-semibold px-3 py-1 rounded-full border transition-all"
                 :class="activeCategory === cat
-                  ? 'bg-[#5865f2] border-[#5865f2] text-white'
+                  ? 'bg-[#ff3e00] border-[#ff3e00] text-white'
                   : 'bg-white/3 border-white/[0.07] text-white/35 hover:text-white/60 hover:border-white/15'"
               >{{ cat }}</button>
             </div>
@@ -127,7 +136,7 @@
 
         <!-- No posts at all -->
         <div v-else class="p-12 text-center text-white/25 text-sm">
-          No posts found. Upload a <code class="text-white/40">.md</code> file to the posts folder to get started.
+          No posts found.
         </div>
 
       </div>
